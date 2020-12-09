@@ -132,5 +132,47 @@ class UpdatersExample(Scene):
             run_time=5,
         )
         self.wait()
+        
+class GWH(Scene):
+    def construct(self):
+        a = TextMobject(
+            "SKYLAR : Maybe we could go out for coffee sometime?",
+            tex_to_color_map={"SKYLAR": BLUE_C}
+        )
+        b = TextMobject(
+            "WILL : Great, or maybe we could go somewhere",
+            tex_to_color_map={"WILL": GREY}
+        )
+        b_1 = TextMobject(
+            "and just eat a bunch of caramels."
+        )
+        c = TextMobject(
+            "SKYLAR : What?",
+            tex_to_color_map={"SKYLAR": BLUE_C}
+        )
+        d = TextMobject(
+            "WILL : When you think about it,",
+            tex_to_color_map={"WILL": GREY}
+        )
+        d_1 = TextMobject(
+            "it's just as arbitrary as drinking coffee."
+        )
+        e = TextMobject(
+            "SKYLAR : (Laughs) Okay, sounds good.",
+            tex_to_color_map={"SKYLAR": BLUE_C}
+        )
 
+        group = VGroup(a, b,b_1, c, d,d_1, e)
+        group.to_corner(UP+LEFT)
+        group.arrange(DOWN, center=True, aligned_edge=LEFT) 
+        group.set_width(FRAME_WIDTH - 2 * LARGE_BUFF)
+        t = .75
+        self.play(Write(a),run_time=t)
+        self.play(Write(b),run_time=t)
+        self.play(Write(b_1),run_time=t)
+        self.play(Write(c),run_time=t)
+        self.play(Write(d),run_time=t)
+        self.play(Write(d_1),run_time=t)
+        self.play(Write(e),run_time=t)
+        self.wait()
 # See old_projects folder for many, many more
